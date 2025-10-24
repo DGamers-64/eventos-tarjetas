@@ -1,0 +1,36 @@
+GET http://localhost:3000/api/eventos
+
+###
+
+GET http://localhost:3000/api/eventos/1
+
+###
+
+POST http://localhost:3000/api/eventos
+Content-Type: application/json
+
+{
+    "titulo": "Halloween",
+    "description": "Se viene halloween chavales",
+    "category": "fiestas",
+    "imgUrl": "https://s.calendarr.com/upload/92/a0/halloween.png?auto_optmize=low",
+    "dateTime": "2025-10-30T23:00:00.000Z"
+}
+
+###
+
+PUT http://localhost:3000/api/eventos/1
+Content-Type: application/json
+
+{
+    "id": 1,
+    "titulo": "Conoce la selva ACTUALIZADO",
+    "description": "Aprende sobre las aves de la selva",
+    "category": "Animales",
+    "imgUrl": "https://plus.unsplash.com/premium_photo-1760735463958-f35bcad4fb87?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+    "dateTime": "2025-11-15T14:00:00.000Z"
+}
+
+###
+
+DELETE http://localhost:3000/api/eventos/1
