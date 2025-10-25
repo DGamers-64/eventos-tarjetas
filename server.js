@@ -25,7 +25,7 @@ let eventos = [
 		description: "¡Halloween se acerca! Prepara tu mejor disfraz",
 		category: "festividad",
 		imgUrl: "https://s.calendarr.com/upload/92/a0/halloween-f.png?class=ogImageRectangle",
-		dateTime: Temporal.Instant.from("2025-10-29T14:00:00+01:00")
+		dateTime: Temporal.Instant.from("2025-10-31T00:00:00+01:00")
 	},
 	{
 		id: 2,
