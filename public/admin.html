@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="style-global.css" />
+	<link rel="stylesheet" href="admin.css" />
+	<link rel="stylesheet" href="index.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+	<script src='https://cdn.jsdelivr.net/npm/temporal-polyfill@0.3.0/global.min.js'></script>
+    <script src="admin.js"></script>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Panel Administrador</h1>
+            <a href="./">Ir a eventos</a>
+        </header>
+        <section id="grid-formularios">
+            <article id="anadir-evento">
+                <h2 class="h2-admin">Añadir evento</h2>
+                <form>
+                    <label for="titulo-post">Título</label>
+                    <input type="text" id="description-post" name="titulo">
+                    <label for="description-post">Descripción</label>
+                    <input type="text" id="description-post" name="description">
+                    <label for="category-post">Categoría</label>
+                    <select id="category-post" name="category">
+                        <option value="festividad">Festividad</option>
+                        <option value="deportes">Deportes</option>
+                        <option value="historia">Historia</option>
+                        <option value="musica">Música</option>
+                    </select>
+                    <label for="imgUrl-post">Imagen</label>
+                    <input type="text" id="imgUrl-post" name="imgUrl">
+                    <label for="dateTime-post">Fecha límite</label>
+                    <input type="datetime-local" id="dateTime-post" name="dateTime">
+                    <button>Nuevo evento</button>
+                </form>
+            </article>
+            <article id="resultado">
+                <h2 class="h2-admin">Resultado</h2>
+                <div id="texto-resultado"></div>
+            </article>
+            <article id="lista-eventos">
+                <h2 class="h2-admin">Lista eventos</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>¿Editar?</th>
+                            <th>¿Borrar?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </article>
+            <article id="editar-evento">
+                <h2 class="h2-admin">Editar evento</h2>
+                <form>
+                    <input type="hidden" name="id">
+                    <label for="titulo-put">Título</label>
+                    <input type="text" id="description-put" name="titulo">
+                    <label for="description-put">Descripción</label>
+                    <input type="text" id="description-put" name="description">
+                    <label for="category-put">Categoría</label>
+                    <select id="category-put" name="category">
+                        <option value="festividad">Festividad</option>
+                        <option value="deportes">Deportes</option>
+                        <option value="historia">Historia</option>
+                        <option value="musica">Música</option>
+                    </select>
+                    <label for="imgUrl-put">Imagen</label>
+                    <input type="text" id="imgUrl-put" name="imgUrl">
+                    <label for="dateTime-put">Fecha límite</label>
+                    <input type="datetime-local" id="dateTime-put" name="dateTime">
+                    <button>Editar evento</button>
+                </form>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

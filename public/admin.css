@@ -1,0 +1,151 @@
+#grid-formularios {
+	flex: 1;
+	padding: 1rem;
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas: 
+	"anadir lista"
+	"resultado formulario";
+}
+
+#grid-formularios article {
+	border: 1px solid black;
+	background-color: white;
+	border-radius: 2rem;
+	height: 100%;
+	padding: 1rem;
+}
+
+.h2-admin {
+	text-align: center;
+	font-size: 2em;
+}
+
+#anadir-evento {
+	grid-area: anadir;
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+	font-size: 1.5em;
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+}
+
+form select {
+	margin-left: 2rem;
+	font-size: 1em;
+}
+
+form input {
+	margin-left: 2rem;
+	font-size: 1em;
+}
+
+form button {
+    margin-top: 1rem;
+    font-size: 1em;
+}
+
+#resultado {
+	grid-area: resultado;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+}
+
+#resultado > h2 {
+	flex: 0;
+}
+
+#texto-resultado {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#resultado h3 {
+	text-align: center;
+	font-size: 4em;
+}
+
+#lista-eventos {
+	grid-area: lista;
+    padding: 2rem;
+}
+
+#lista-eventos table {
+    margin-top: 1rem;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#lista-eventos table, #lista-eventos td, #lista-eventos th {
+    border: 1px solid black;
+}
+
+#lista-eventos th {
+    background-color: black;
+    color: white;
+}
+
+#lista-eventos td, #lista-eventos th {
+    padding: .2rem;
+}
+
+#lista-eventos tbody tr:nth-child(odd) {
+    background-color: rgb(187, 187, 187);
+}
+
+#lista-eventos tbody tr:nth-child(even) {
+    background-color: white;
+}
+
+#lista-eventos tbody tr td:nth-child(3), #lista-eventos tbody tr td:nth-child(4) {
+    text-align: center;
+}
+
+.button-editar {
+    background-color: goldenrod;
+}
+
+.button-eliminar {
+    background-color: red;
+}
+
+#editar-evento {
+	grid-area: formulario;
+    display: flex;
+    flex-direction: column;
+}
+
+#editar-evento form {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+	#grid-formularios {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: 
+        "anadir"
+        "lista"
+        "formulario"
+		"resultado";
+	}
+}
+
+@media (max-width: 640px) {
+	.countdown-value {
+		font-size: 1.5rem;
+	}
+
+	.countdown-label {
+		font-size: 0.7rem;
+	}
+}

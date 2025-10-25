@@ -24,20 +24,21 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function devolverTarjeta(data) {
-    const categoriasFormateadas = {
-        "animals": "Animales",
-        "fiestas": "Fiestas"
-    }
 
     const fecha = Temporal.Instant.from(data.dateTime)
     const ahora = Temporal.Now.instant()
     const tiempoRestante = fecha.since(ahora).round({ smallestUnit: "second", largestUnit: "day" })
 
+    let esPasado = "futuro"
+    if (Temporal.Instant.compare(fecha, ahora) < 0) {
+        esPasado = "pasado"
+    }
+
     return `
-        <div class="card" id="card-${data.id}">
+        <div class="card ${esPasado}" id="card-${data.id}">
             <img src="${data.imgUrl}" class="card-img"/>
             <div class="card-content-container">
-                <span class="category ${data.category}">${categoriasFormateadas[data.category]}</span>
+                <span class="category ${data.category}">${data.category}</span>
                 <h2 class="card-title">${data.titulo}</h2>
                 <p class="card-subtitle">${data.description}</p>
                 <div class="event-date">
