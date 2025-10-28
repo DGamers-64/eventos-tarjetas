@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         })
             .then(res => res.json())
             .then(data => {
-                document.querySelector("#texto-resultado").innerHTML = "<h3>Insertado correctamente</h3>"
+                document.querySelector("#texto-resultado").innerHTML = "<h3>Editado correctamente</h3>"
             })
             .catch(e => {
                 document.querySelector("#texto-resultado").innerHTML = "<h3>Error</h3>"
