@@ -13,15 +13,16 @@ db.run(`CREATE TABLE IF NOT EXISTS tarjetas (
 	category VARCHAR(100),
     imgUrl VARCHAR(100),
     dateTime DATETIME
-)`, (err) => {
-	if (err) return console.error(err)
-	db.run(`INSERT OR IGNORE INTO tarjetas (id, titulo, description, category, imgUrl, dateTime) VALUES
-		(1, 'Halloween', '¡Halloween se acerca! Prepara tu mejor disfraz', 'festividad', 'https://s.calendarr.com/upload/92/a0/halloween-f.png?class=ogImageRectangle', '2025-10-31T00:00:00+01:00'),
-		(2, 'Mundial 2026', 'Se acerca el Mundial de fútbol 2026 en EEUU, Canadá y México', 'deportes', 'https://editorial.uefa.com/resources/0299-1ddbad09d3de-a06a5b3fb191-1000/fbl-wc2026-eur-draw.jpeg', '2026-06-11T00:00:00+02:00'),
-		(3, 'Bombardeo Hiroshima', 'El fatídico bombardeo nuclear de Hiroshima', 'historia', 'https://www.annefrank.org/media/filer_public_thumbnails/filer_public/10/f0/10f00621-71fe-422d-8602-0cdf26f09b25/nagasakibomb.jpg__1536x1536_q85_subsampling-2.jpg', '1945-08-06T08:15:00+09:00'),
-		(4, 'Son do Camiño 2026', 'Uno de los mayores festivales de música en Galicia', 'musica', 'https://modofestival.es/wp-content/uploads/2025/10/O-Son-Do-Camino-1.jpg', '2026-06-18T00:00:00+02:00')
-	`, (err) => { if (err) return console.error(err) })
-})
+	)`, (err) => {
+		if (err) return console.error(err)
+		db.run(`INSERT OR IGNORE INTO tarjetas (id, titulo, description, category, imgUrl, dateTime) VALUES
+			(1, 'Halloween', '¡Halloween se acerca! Prepara tu mejor disfraz', 'festividad', 'https://s.calendarr.com/upload/92/a0/halloween-f.png?class=ogImageRectangle', '2025-10-31T00:00:00+01:00'),
+			(2, 'Mundial 2026', 'Se acerca el Mundial de fútbol 2026 en EEUU, Canadá y México', 'deportes', 'https://editorial.uefa.com/resources/0299-1ddbad09d3de-a06a5b3fb191-1000/fbl-wc2026-eur-draw.jpeg', '2026-06-11T00:00:00+02:00'),
+			(3, 'Bombardeo Hiroshima', 'El fatídico bombardeo nuclear de Hiroshima', 'historia', 'https://www.annefrank.org/media/filer_public_thumbnails/filer_public/10/f0/10f00621-71fe-422d-8602-0cdf26f09b25/nagasakibomb.jpg__1536x1536_q85_subsampling-2.jpg', '1945-08-06T08:15:00+09:00'),
+			(4, 'Son do Camiño 2026', 'Uno de los mayores festivales de música en Galicia', 'musica', 'https://modofestival.es/wp-content/uploads/2025/10/O-Son-Do-Camino-1.jpg', '2026-06-18T00:00:00+02:00')
+		`, (err) => { if (err) return console.error(err) })
+	}
+)
 
 // Middleware para parsear JSON
 app.use(express.urlencoded({ extended: true }));
@@ -130,10 +131,7 @@ app.delete("/api/eventos/:id", (req, res) => {
 	db.run("DELETE FROM tarjetas WHERE id = ?", [id], (err) => {
 		if (err) return res.status(404).json({ error: "Evento no encontrado" })
 
-		db.get("SELECT * FROM tarjetas WHERE id = ?", [id], (err, row) => {
-			if (err) return res.status(404).json({ error: "Evento no encontrado" })
-			res.json({ mensaje: "Evento eliminado", evento: row });
-		})
+		res.json({ mensaje: "Evento eliminado" });
 	})
 });
 
